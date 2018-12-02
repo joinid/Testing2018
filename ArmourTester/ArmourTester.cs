@@ -30,5 +30,16 @@ namespace ArmourTester
                 Assert.Fail();
             }
         }
+        [TestMethod]
+        public void TestProtection()
+        {
+            Armour ar = new Armour("Jorma", "Kokkeli", 20, 2, 2);
+            string condition = ar.getCondition();
+
+            if (condition is null)
+            {
+                Assert.Fail();
+            }
+        }
     }
 }
