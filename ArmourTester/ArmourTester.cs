@@ -31,12 +31,26 @@ namespace ArmourTester
             }
         }
         [TestMethod]
-        public void TestProtection()
+        public void TestProtection1() // Test output for unexpected protection levels
         {
-            Armour ar = new Armour("Jorma", "Kokkeli", 20, 2, 2);
+            Armour ar = new Armour("Jorma", "Kokkeli", 200, 8, 4);
             string condition = ar.getCondition();
 
             if (condition is null)
+            {
+                Console.WriteLine(condition);
+                Assert.Fail();
+            }
+        }
+        [TestMethod]
+        public void TestDamage1() // Check for negative damage
+        {
+            Armour ar = new Armour("Jorma", "Kokkeli", 40, 2, 2);
+  
+            ar.takeDam(42);
+            int curProt = ar.getCurProt();
+
+            if (curProt < 0)
             {
                 Assert.Fail();
             }
