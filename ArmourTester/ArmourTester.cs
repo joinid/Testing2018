@@ -36,7 +36,7 @@ namespace ArmourTester
             Armour ar = new Armour("Jorma", "Kokkeli", 200, 8, 4);
             string condition = ar.getCondition();
 
-            if (condition is null)
+            if (condition == "")
             {
                 Console.WriteLine(condition);
                 Assert.Fail();
