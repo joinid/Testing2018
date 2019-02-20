@@ -55,5 +55,78 @@ namespace ArmourTester
                 Assert.Fail();
             }
         }
+        [TestMethod]
+        public void testConditionMint()
+        {
+            string condition;
+            for (int i = 100; i < 110; i++) // test return for protection at 100 and over
+            {
+                Armour ar = new Armour("Jorma", "Kokkeli", i, 2, 2);
+                condition = ar.getCondition();
+                if (condition != "Mint")
+                {
+                    Assert.Fail();
+                }
+                ar = null;
+            }     
+        }
+        [TestMethod]
+        public void testConditionExcellent()
+        {
+            string condition;
+            for (int i = 80; i < 89; i++) // test return for protection between the values 80 and 99
+            {
+                Armour ar = new Armour("Jorma", "Kokkeli", i, 2, 2);
+                condition = ar.getCondition();
+                if (condition != "Excellent")
+                {
+                    Assert.Fail();
+                }
+                ar = null;
+            }
+        }
+        [TestMethod]
+        public void testConditionGood() // test Good
+        {
+            
+    
+                Armour ar = new Armour("Jorma", "Kokkeli", 62, 2, 2);
+
+                if (ar.getCondition() != "Good")
+                {
+                    Assert.Fail();
+                }
+            
+        }
+        /* 
+         if (relation >= 1.0)
+        {
+            retVal = "Mint";
+        }
+        else if (relation >= 0.8)
+        {
+            retVal = "Excellent";
+        }
+        else if (relation >= 0.6)
+        {
+            retVal = "Good";
+        }
+        else if (relation >= 0.4)
+        {
+            retVal = "Average";
+        }
+        else if (relation >= 0.2)
+        {
+            retVal = "Weak";
+        }
+        else if (relation >= 0.01)
+        {
+            retVal = "Poor";
+        }
+        else
+        {
+            retVal = "Destroyed";
+        }
+         */
     }
 }
