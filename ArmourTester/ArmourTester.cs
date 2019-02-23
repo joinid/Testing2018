@@ -88,45 +88,52 @@ namespace ArmourTester
         [TestMethod]
         public void testConditionGood() // test Good
         {
-            
-    
                 Armour ar = new Armour("Jorma", "Kokkeli", 62, 2, 2);
 
                 if (ar.getCondition() != "Good")
                 {
                     Assert.Fail();
                 }
-            
         }
-        /* 
-         if (relation >= 1.0)
+        [TestMethod]
+        public void testConditionAverage() // test Average
         {
-            retVal = "Mint";
+            Armour ar = new Armour("Jorma", "Kokkeli", 50, 2, 2);
+
+            if (ar.getCondition() != "Average")
+            {
+                Assert.Fail();
+            }
         }
-        else if (relation >= 0.8)
+        [TestMethod]
+        public void testConditionWeak() // test Weak
         {
-            retVal = "Excellent";
+            Armour ar = new Armour("Jorma", "Kokkeli", 21, 2, 2);
+
+            if (ar.getCondition() != "Weak")
+            {
+                Assert.Fail();
+            }
         }
-        else if (relation >= 0.6)
+        [TestMethod]
+        public void testConditionPoor() // test Poor
         {
-            retVal = "Good";
+            Armour ar = new Armour("Jorma", "Kokkeli", 11, 2, 2);
+            string condition = ar.getCondition();
+            if (condition != "Poor")
+            {
+                Assert.Fail();
+            }
         }
-        else if (relation >= 0.4)
+        [TestMethod]
+        public void testConditionDestroyed() // test Destroyed
         {
-            retVal = "Average";
+            Armour ar = new Armour("Jorma", "Kokkeli", 0, 2, 2);
+
+            if (ar.getCondition() != "Destroyed")
+            {
+                Assert.Fail();
+            }
         }
-        else if (relation >= 0.2)
-        {
-            retVal = "Weak";
-        }
-        else if (relation >= 0.01)
-        {
-            retVal = "Poor";
-        }
-        else
-        {
-            retVal = "Destroyed";
-        }
-         */
     }
 }
